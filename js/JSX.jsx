@@ -236,8 +236,77 @@ del nodo cuyo contenido cambió.
 Pensar en como una interfaz de usuario deberia verse en momento dado, y no en como 
 cambiarla en el tiempo, elimina toda una clase de errores.
 
+*/
+
+/*
+
+Componentes y propiedades 
+
+Los componentes permiten separar la interfaz de usuario en piezas independientes,
+reutilizables y pensar en cada pieza de forma aislada.
+
+conceptualmente, los componentes son como las funciones en javascript. Aceptan
+entradas arbitrarias (llamadas "props") y devuelven a React elementos que 
+describen lo que debe aparecer en pantalla 
+
+Componentes funcionales y de clase
+
+La forma mas sencilla de definir un componente es escribir una funcion en javascript 
 
 */
+
+function welcome(props) {
+    return <h2>hola bienvenido, {props.name} </h2>
+}
+
+//esta funcion es un componente de react valido por que recibe un solo argumento
+//props que viene de propiedades y devuelve un elemento de react. llamamos a estos
+//componentes funcionales por que literalmente son funciones JavaScript.
+
+
+/*
+
+Ejemplo componente funcional
+
+*/
+
+function Welcome(props) {
+    return <h2> Bienvenido,  {props.name} </h2>
+}
+
+const element = <Welcome name="Uriel" />
+
+ReactDOM.render(
+    element,
+    document.getElementById("root")
+)
+
+// 1.- mandamos a ReactDOM.render nuestro elemento
+// 2.- React manda a llamar al componente Welcome, con {name: "uriel"} como props
+// 3.- nuestro componente Welcome devuelve un elemento <h2> Bienvenido Uriel </h2> como resultado
+// 4.- React Dom actualiza eficientemente el DOM para que coincida con <h2> Bienvenido Uriel </h2>
+
+//nota: empieza siempre los nombres de los componentes con letra mayuscula. 
+
+//crear un componente llamado app que renderiza Welcome muchas veces
+
+function Welcome(props){
+    return <h2> Bienvenido {props.name} </h2>
+}
+
+function App(){
+    return (
+        <Welcome name="uriel" />,
+        <Welcome name="sara" />,
+        <Welcome name="mine" />
+    );
+}
+
+ReactDOM.render(
+    <App />,
+    document.getElementById("root")
+)
+
 
 
 
