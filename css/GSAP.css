@@ -1,0 +1,12 @@
+.dibujo{
+    
+    width: 20%;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background: black;
+    display: inline-block;
+    border-radius: 1em;
+}
