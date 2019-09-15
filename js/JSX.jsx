@@ -308,5 +308,125 @@ ReactDOM.render(
 )
 
 
+//ejemplo extraccion de componentes 
+
+function Comment(props) { //no tengas miedo de dividir componentes en otros mas pequeños 
+    return (
+      <div className="Comment"> 
+        <div className="UserInfo">    
+         <UserInfo user={props.author} />
+        </div>
+        <div className="Comment-text">
+          {props.text}
+        </div>
+        <div className="Comment-date">
+          {formatDate(props.date)}
+        </div>
+      </div>
+    );
+  }
+
+  function Avatar(props){
+      return(
+            <img className="Avatar"
+            src={props.user.avatarURL}
+            alt={props.user.name} />
+      );
+  }
+
+  function UserInfo(props){
+      <div className="userInfo">
+          <Avatar user={props.user}/>
+          <div className="UserInfo-name">
+            {props.user.name}
+          </div>
+      </div>
+  }
+
+/*
+
+    Las props son de solo lectura
+
+    Ya sea que declares un componente como una funcion o como una clase, 
+    este nunca debe modificar sus props. 
+
+    Ejemplo
+*/
+
+function suma(a,b) {
+    return a+b;
+}
+
+/*
+
+    Tales funciones son llamadas "puras", por que no tratan de cambiar sus entradas, 
+    y siempre devuelven el mismo resultado para las mismas entradas
+
+    En contraste, la siguiente funcion es impura por que cambia su propia entrada
+
+*/
+
+function withdraw(account, amount) {
+    account.total -= amount;  //cambia el valor de sus props por eso es impura
+  }
+
+
+//REGLA ESTRICTA:
+//todos los componentes de react deben actuar como funciones PURAS con respecto a sus props.
+
+/*
+
+Estado y ciclo de vida de REACT
+
+Un estado es solamente controlado por la clase y es privado
+
+
+*/
+
+//convertir un componente funcional a uno de clase
+
+/*
+
+Crear una clase ES6 con el mismo nombre que herede de React Component
+
+Agregar un unico metodo vacio render()
+
+Mover el cuerpo de la funcion al metodo render().
+
+Remplazar 'props' por 'this.props' en el cuerpo de render.
+
+Borrar el resto de la declaracion ya vacia
+
+EJEMPLO pero sin borrar xD
+
+
+*/
+
+function clock(props){  //componente funcional
+    return(
+        <h2> It's {props.date} </h2>
+    );
+}
+
+//esta clase de abajo es lo mismo que arriba :V
+
+class Clock extends React.Component {
+    render() {
+        return (
+            <div>
+                <h2> It's {this.props.date.toLocaleTimeString()}</h2>
+            </div>
+        );
+    }
+}
+
+function tick(){
+    ReactDOM.render(
+        <Clock date={new Date()} />,
+        document.getElementById("root")
+    )
+}
+
+setInterval(tick,1000); //esto hace que se actualice la interfaz de usuario 
 
 
