@@ -312,10 +312,8 @@ ReactDOM.render(
 
 function Comment(props) { //no tengas miedo de dividir componentes en otros mas pequeños 
     return (
-      <div className="Comment"> 
-        <div className="UserInfo">    
+      <div className="Comment">     
          <UserInfo user={props.author} />
-        </div>
         <div className="Comment-text">
           {props.text}
         </div>
@@ -374,15 +372,6 @@ function withdraw(account, amount) {
 //REGLA ESTRICTA:
 //todos los componentes de react deben actuar como funciones PURAS con respecto a sus props.
 
-/*
-
-Estado y ciclo de vida de REACT
-
-Un estado es solamente controlado por la clase y es privado
-
-
-*/
-
 //convertir un componente funcional a uno de clase
 
 /*
@@ -429,4 +418,140 @@ function tick(){
 
 setInterval(tick,1000); //esto hace que se actualice la interfaz de usuario 
 
+//soo, entonces podemos hacer lo de arriba de una manera que clock se renderice
+//asi misma.
 
+ReactDOM.render(
+    <Clock />,
+    document.getElementById('root')
+  );
+
+//para implementar esto, necesitamos agregar "estado" al componente Clock.
+
+class Clock extends React.Component {
+    render() {
+        return (
+            <div>
+                <h2> It's {this.props.date.toLocaleTimeString()}</h2>
+            </div>
+        );
+    }
+}
+
+//clock se define ahora como una clase y no como una funcion
+
+
+/*
+
+Estado y ciclo de vida de REACT
+
+El estado le permite a los componentes de React cambiar su salida a lo largo
+del tiempo en respuesta a acciones de usuario, respuestas de red, 
+y cualquier otra cosa sin violar la regla de las funciones puras.
+
+El estado es similar a las props, pero es privado y está completamente 
+controlado por el componente.
+
+
+*/
+
+//agregar estado local a una clase
+
+//  1.- Reemplazar "this.props.date" por "this.state.date" en el metodo render()
+
+class Clock extends React.Component {
+    render() {
+        return (
+            <div>
+                <h2> It's {this.state.date.toLocaleTimeString()}</h2>
+            </div>
+        );
+    }
+}
+
+// 2.- Añadir un constructor de clase que asigne el this.state inicial:
+
+class Clock extends React.Component {
+
+    constructor(props){
+        super(props);   // los componentes siempre deben invocar al constructor base con props
+        this.state = {date: new Date()}; 
+    }
+
+    render() {
+        return (
+            <div>
+                <h2> It's {this.state.date.toLocaleTimeString()}</h2>
+            </div>
+        );
+    }
+}
+
+//de esta forma podemos renderizar el componente asi
+
+ReactDOM.render(
+    <Clock />,
+    document.getElementById('root')
+  );
+
+//ahora haremos que clock configure su propio temporizador y se actualice cada segundo
+
+/*
+
+    Agregar metodos de ciclo de vida a una clase
+
+    En aplicaciones con muchos componentes, es muy importante liberar recursos 
+    tomados por los componentes cuando se destruyen.
+
+    Queremos configurar un temporizador cada vez que Clock se renderice en el DOM
+    por primera vez. Esto se llama "montaje" en React.
+
+    Tambien queremos borrar ese temporizador cada vez que el Dom producido por Clock
+    se elmine. Esto se llama "desmontaje" en React.
+
+    Podemos declarar metodos especiales en la clase del componente para ejecutar
+    algun codigo cuando un componente se monta y se desmonta.
+
+
+*/
+
+class Clock extends React.Component {
+
+    constructor(props){
+        super(props);   // los componentes siempre deben invocar al constructor base con props
+        this.state = {date: new Date()}; 
+    }
+
+    componentDidMount() { //montaje 
+        
+        this.timerID = setInterval(
+            () => this.tick(),
+            1000
+        );
+
+    }
+  
+    componentWillUnmount() { //desmontaje
+  
+    }
+
+    //estos metodos son llamados "metodos de ciclo de vida"
+
+    render() {
+        return (
+            <div>
+                <h2> It's {this.state.date.toLocaleTimeString()}</h2>
+            </div>
+        );
+    }
+}
+
+
+/*
+
+
+    El metodo componentDidMount() se ejecuta despues que la salida del
+    componente ha sido renderizada en el DOM. 
+
+
+*/
