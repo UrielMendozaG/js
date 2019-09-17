@@ -530,9 +530,15 @@ class Clock extends React.Component {
         );
 
     }
+
+    thick(){   //metodo tick encargado de actualizar el estado a uno nuevo
+        this.setState({
+            date: new Date()
+        });
+    }
   
     componentWillUnmount() { //desmontaje
-  
+        clearInterval(this.timerID);
     }
 
     //estos metodos son llamados "metodos de ciclo de vida"
@@ -546,6 +552,10 @@ class Clock extends React.Component {
     }
 }
 
+ReactDOM.render(
+    <Clock />,
+    document.getElementById("app")
+)
 
 /*
 
@@ -553,5 +563,32 @@ class Clock extends React.Component {
     El metodo componentDidMount() se ejecuta despues que la salida del
     componente ha sido renderizada en el DOM. 
 
+    Eliminaremos el temporizador en componentWillUnmount()
+
+
+    1.- Cuando se pasa Clock a react render, React invoca al constructor del componente
+    Clock. Ya que clock necesita mostrar la hora actual, inicializa "this.state" con un
+    objeto que incluye la hora actual. luego actualizaremos ese estado.
+
+    2.- React invoca entonces el metodo render() del componente Clock. Asi es como react
+    sabe que es lo que tiene que mostrar en pantalla. React entonces actualiza el DOM
+    para que coincida con la salida del renderizado de Clock.
+
+    3.- Cuando la salida de Clock se inserta en el DOM, React invoca al metodo de ciclo
+    de vida ComponentDidMount(), dentro de el, el componente Clock le pide al navegador
+    que configure un temporizador para invocar al metodo tick() del componente una 
+    vez por segundo.
+
+    4.- Cada segundo el navegador invoca al metodo thick(). Dentro de él, el componente Clock
+    planifica una actualizacion de la interfaz de usuario al invocar setState() con un objeto
+    que contiene la hora actual. Gracias a la invocacion a setState(), React sabe que el estado
+    cambió e invoca de nuevo al metodo render() para saber que debe de estar en la pantalla.
+    Esta vez, this.state.date en el metodo render() será diferente, por lo que el resultado
+    del renderizado incluirá la hora actualizada. Conforme a eso React actualizará el dom.
+
+    5.- Si el componente Clock se elimina en algun momento del DOM, react invoca al metodo
+    de ciclo de vida componentWillMount(), por lo que el temporizador se detiene.
+
+    
 
 */
