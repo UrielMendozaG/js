@@ -592,3 +592,29 @@ ReactDOM.render(
     
 
 */
+
+/*
+
+    Manejando eventos con react 
+
+    Los eventos en React se manejan utilizando CamelCase
+
+    Con JSX pasas una funcion como el manejador del evento, en vez de un string 
+
+    EJEMPLO DE EVENTO PRIMERO EN HTML
+
+    <button onclick="activateLasers()">
+        Activate Lasers
+    </button>
+
+    EJEMPLO DE EVENTO PERO USANDO REACT
+
+    <button onClick={activateLasers}>
+        Activate Lasers
+    </button>
+
+    DIA 5
+*/
+
+
+
