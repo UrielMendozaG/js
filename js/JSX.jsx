@@ -190,11 +190,41 @@ React lee estos objetos y los usa para construir el DOM y mantenerlo actualizado
 
 Los elementos son los bloques mas pequeños de las aplicaciones de REACT.
 
-Un elemento describe lo que quieres ver en pantalla 
+Un elemento describe lo que quieres ver en pantalla.
 
 */
 
 const elemento = <h2> Hola soy un elemento :B </h2>
+
+
+
+/*
+
+JSX debe retornar un solo elemento, este elemento padre debe wrapear
+todos los niveles de los elementos anidados.
+
+Por ejemplo, varios elementos JSX escritos como hermanos sin padre no 
+transpilará, ejemplo:
+
+*/
+
+//JSX VALIDO: 
+
+const element = 
+
+<div>
+<p>Paragraph One</p>
+<p>Paragraph Two</p>
+<p>Paragraph Three</p>
+</div>;
+
+//JSX INVALIDO: 
+
+// const element = 
+
+// <p>Paragraph One</p>
+// <p>Paragraph Two</p>
+// <p>Paragraph Three</p>
 
 /*
 
@@ -614,7 +644,36 @@ ReactDOM.render(
     </button>
 
     DIA 5
+
+    DIA 6
+
+    Otra diferencia es que en react no puedes retornar false para prevenir el comportamiento
+    por defecto. Debes, explicitamente llamar preventDefault. Por ejemplo, en un html plano, 
+    para prevenir el comportamiento por defecto de un enlace de abrir nueva pagina, puedes
+    escribir:
+
+    <a href="#" onclick="console.log('The link was clicked.'); return false">
+     Click me
+    </a>
+
+    EN CAMBIO EN REACT ESTO DEBE DE SER:
+
 */
+
+function ActionLink() {
+    function handleClick(e) {
+      e.preventDefault();
+      console.log('The link was clicked.');
+    }
+  
+    return (
+      <a href="#" onClick={handleClick}>
+        Click me
+      </a>
+    );
+  }
+
+  //pausa para practicar eventos en javascript
 
 
 
