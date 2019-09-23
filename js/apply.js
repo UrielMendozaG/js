@@ -60,4 +60,22 @@ var person = {
 
   person.fullName.apply(person2, ["Guadalajara","Mexico"]);
 
-  
+  //simular un max method en arreglos
+
+  //puedes encontrar el numero mas grande (En una lista de numeros) usando el math.max() method
+
+  //example
+
+  Math.max(1,2,3) //return 3
+
+  //como los arreglos de javascript no tienen un max() metodo, puedes aplicar un math.max metod en su lugar
+
+  //example
+
+  Math.max.apply(null,[1,2,3]) //retornara 3
+
+  //el primer argumento null no importa 
+
+  Math.max.apply(" ", [1,2,3]); // Will also return 3
+
+  Math.max.apply(0, [1,2,3]); // Will also return 3 
