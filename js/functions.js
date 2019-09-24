@@ -107,3 +107,56 @@ var x = 5;
     x = 10;
     console.log("x:", x); // 10
 }());
+
+// Se elevan las declaraciones, no se elevan las asignaciones
+
+/*
+
+    Function Hoisting
+
+    Hosting aplica a declaracion de variables y de funciones tambien.
+
+    Gracias a esto, las funciones de javascript pueden ser llamadas antes de ser declaradas.
+
+*/
+
+    myFunction(5); //25
+
+    function myFunction(y) {
+    return y * y;
+    }
+
+    //Funciones definidas usando una expresion no son elevadas
+
+/*
+
+    Funciones que se invocan a si mismas
+
+    Las expresiones de funciones pueden hacerse "self-invoking"
+
+    Una "self-invoking" expresion es llamada automaticamente, sin ser llamada.
+
+    Las funciones expresion seran ejecutadas automaticamente si la expresion
+    es seguida por ().
+
+    Tu no puedes auto invocar a una declaracion de funcion.
+
+    Tienes que añadir parentesis al rededor de la funcion para indicar que es una funcion expresion
+
+*/
+
+    (function (){
+        var x = "Hello";
+    })();
+
+// la funcion de arriba es una funcion anonima 
+
+/*
+
+    Las funciones pueden usarse como valores 
+
+*/
+
+    //  Example
+
+    
