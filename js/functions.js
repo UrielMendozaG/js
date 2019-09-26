@@ -159,4 +159,115 @@ var x = 5;
 
     //  Example
 
+    function myFunction(a, b) {
+        return a * b;
+      }
+
+      var x = myFunction(4, 3);
+
+      // x = 12
+
+
+/*
+
+    Las funciones pueden ser usadas en expresiones
+
+    Example
+*/
+
+    function myFunction(a, b) {
+        return a * b;
+    }
+  
+    var x = myFunction(4, 3) * 2;
     
+
+/*
+
+    Las funciones son objetos.
+
+    El operador "typeof" en javascript retorna "function" en las funciones.
+    
+    PERO, las funciones en javascript pueden describirse como objetos.
+
+    Las funciones de javascript tienen propiedades y metodos.
+
+    La propiedad "arguments.length" retorna el numero de argumentos recibidos cuando 
+    una funcion es invocada.
+
+    Example
+
+*/
+
+    function myFunction(a, b) {
+        return arguments.length;
+    }
+
+    //si mandamos a llamar la myFunction(2,3) el resultado será 2
+
+/*
+
+    El metodo toString() retorna la funcion como un string
+
+    Example
+*/
+
+    function myFunction(a, b) {
+        return a * b;
+    }
+    
+    var txt = myFunction.toString();
+
+    //return function myFunction(a, b) { return a * b; }
+    //extraño lo se :V
+
+/*
+
+    Una funcion definida como propiedad de un objeto, es definida
+    como un metodo.
+
+    Una funcion utilizada para crear mas objetos, es definida
+    como un constructor.
+
+*/
+
+/*
+
+    Funciones Flecha
+
+    Las funciones flecha permiten una sintaxis corta para escribir funciones de expresion.
+    
+    No se necesita la palabra clave "function" ni "return" ni los corchetes.
+
+    Example
+
+*/
+
+    // ES5
+    var x = function(x, y) {
+        return x * y;
+    }
+    
+    // ES6
+    const x = (x, y) => x * y;
+
+    x(2,3);
+
+    console.log(x) //6
+
+/*
+
+    Las funciones flechas no tienen su propio "this".
+
+    No son bien situadas para definir metodos de objeto.
+
+    Las funciones flechas are not hoisted, debes de declarlas antes de usarlas.
+
+    Usar "const" es mas seguro que usar "var", por que una expresion de funcion es siempre constante.
+
+    Solamente puedes omitir return y los corchetes si la funcion tiene una sola declaracion, debido
+    a esto es un buen habito siempre tenerlos.
+
+*/
+
+    const x = (x, y) => { return x * y };
