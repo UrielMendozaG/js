@@ -271,3 +271,96 @@ var x = 5;
 */
 
     const x = (x, y) => { return x * y };
+
+/*
+    
+        Parametros de la funcion
+
+        Los parametros de la funcion son los nombres listados en la definicion de la funcion.
+    
+        Los argumentos son los valores reales que son pasados (y recibidos) a la funcion.
+*/
+
+   function functionName(parameter1, parameter2, parameter3) {
+        // code to be executed
+    }
+
+
+/*
+
+    Reglas de los parametros.
+
+    Las funciones de javascript no especifican tipos de datos para los parametros.
+
+    Tampoco checan datos en los argumentos pasados.
+
+    Tampoco checan el numero de argumentos recibidos.
+
+*/
+
+/* 
+
+    Parametros por default
+
+    Si una funcion es llamada y faltan argumentos, los valores que faltan son definidos como:
+    "undefined".
+
+    Esto a veces es aceptable, pero tambien a veces es mejor asignar un valor por default al 
+    parametro.
+
+*/
+
+function myFunction(x, y) {
+    if (y === undefined) {
+      y = 0;
+    }
+  }
+
+//ECMAESCRIPT 2015 permite declarar valores por default en la funcion
+
+// function (a=1, b=1) {
+//     // function code
+//   }
+
+/*
+
+  El objeto de los argumentos.
+
+  Las funciones de javascript tienen un objecto built-in llamado objeto de los argumentos.
+
+  El objeto argumento contiene un arreglo de los argumentos usados cuando la funcion es invocada.
+
+  De esta simple forma puedes usar una funcion para encontrar (por ejemplo) el mayor valor de una lista
+  de numeros.
+
+*/
+
+numeroMaximo(5,6,7,1); //retorna 7
+
+function numeroMaximo(){
+    // arguments = [ 5 , 6 , 7 , 1 ]
+    var max = -Infinity
+    var i;
+
+    for(i = 0; i<arguments.length; i++){
+        if(arguments[i] > max){
+            max = arguments[i];
+        }
+    }
+    return max;
+}
+
+// crear una simple funcion para sumar todos los valores 
+
+x = sumaTodo(5,5,5,5);
+
+function sumaTodo(){
+    var suma = 0;
+    var i = 0;
+
+    for(i = 0; i<arguments.length; i++){
+        suma += arguments[i];
+    }
+
+    return suma;
+}
