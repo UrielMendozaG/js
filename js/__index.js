@@ -2,7 +2,10 @@
 
     Lo basico de js
 
-    DOM
+    DOM:
+
+    Lazyload
+    canvas
 
     FETCH API AJAX
 
