@@ -203,7 +203,7 @@ document.getElementById("demo").innerHTML = "Hello World!";
 */
 
 /*
-    Añadiendo y borrando elementos
+    Añadiendo y borrando elementos // borrar elementos
 
     Metodo                                Descripcion
 
@@ -217,6 +217,265 @@ document.getElementById("demo").innerHTML = "Hello World!";
     
     document.write(text)                  Escribe en HTML de salida
 */
+
+/*
+    Añadiendo manejadores de eventos                            Descripcion
+
+    document.getElementById(id).onclick = function(){code}      Adding event handler code to an onclick event
+
+*/
+
+/*
+    Encontrando objetos HTML
+
+    El primer nivel del DOM HTML  (1998), definio 11 objetos HTML, coleccion de objetos
+    y propiedades. Estos todavia son validos en HTML5
+
+    Despues, en el DOM HTML nivel 3, mas objetos, colecciones y propiedades fueron
+    añadidas.
+*/
+
+/*
+    Propiedad 
+
+    document.anchors	            Returns all <a> elements that have a name attribute	1
+    document.applets	            Returns all <applet> elements (Deprecated in HTML5)	1
+    document.baseURI	            Returns the absolute base URI of the document	3
+    document.body	                Returns the <body> element	1
+    document.cookie	                Returns the document's cookie	1
+    document.doctype	            Returns the document's doctype	3
+    document.documentElement	    Returns the <html> element	3
+    document.documentMode	        Returns the mode used by the browser	3
+    document.documentURI	        Returns the URI of the document	3
+    document.domain	                Returns the domain name of the document server	1
+    document.domConfig	Obsolete.   Returns the DOM configuration	3
+    document.embeds	                Returns all <embed> elements	3
+    document.forms	                Returns all <form> elements	1
+    document.head	                Returns the <head> element	3
+    document.images	                Returns all <img> elements	1
+    document.implementation	        Returns the DOM implementation	3
+    document.inputEncoding	        Returns the document's encoding (character set)	3
+    document.lastModified	        Returns the date and time the document was updated	3
+    document.links	                Returns all <area> and <a> elements that have a href attribute	1
+    document.readyState	            Returns the (loading) status of the document	3
+    document.referrer	            Returns the URI of the referrer (the linking document)	1
+    document.scripts	            Returns all <script> elements	3
+    document.strictErrorChecking	Returns if error checking is enforced	3
+    document.title	                Returns the <title> element	1
+    document.URL	                Returns the complete URL of the document	1
+
+*/
+
+
+/*
+    Javascript HTML DOM Elements
+
+    Ahora enseñare como encontrar y acceder a elementos HTML en una HTML page
+
+    Encontrando elementos HTML
+
+    A menudo, con javascript, quieres manipular elementos HTML.
+
+    Para hacer eso, tienes que encontrar los elementos primero. 
+    Hay varias maneras para hacer eso:
+        
+        -Encontrando elementos HTML por el id
+        -por el tagname
+        -class name
+        -css selectors
+        -html object collections
+
+    Encontrando elemento HTML por el id
+
+    La manera mas facil sin duda, es usar el id.
+
+    Este ejemplo muestra de como encontrar un elemento con el id="uri"
+*/
+
+var elemento = document.getElementById("uri");
+
+/*
+    Si el elemento es econtrado, el metodo retornara el elemento como un objeto
+    en la variable "elemento".
+
+    Si el elemento no es encontrado, elemento tendra el valor de null.
+*/
+
+/*
+    Encontrado elementos HTML por el tag name
+
+    Este ejemplo encuentra todos los <p> elementos.
+
+*/
+
+var x = document.getElementsByTagName("p");
+
+/*
+    El ejemplo de abajo ecuentra el elemento con el id ="main",
+    y luego encuentra todos los <p> dentro de este.
+
+*/
+
+    var x = document.getElementById("main");
+    var y = x.getElementsByTagName("p");
+
+/*
+    Encontrando elementos por class name
+
+    Si quieres encontar todos los elementos con la misma clase, use
+    getElementsByClassName();
+
+    El ejemplo de abajo obtiene todos los elementos en la clase intro.
+
+*/
+
+var x = document.getElementsByClassName("intro");
+
+/*
+    Encontrando elementos HTML por CSS selectors
+
+    Si quieres encontrar elementos HTML que coincidad con un selector css
+    especifico (id, class names, types, attributes, values of attributes, etc)
+    use the querySelectorAll();
+
+    Este ejemplo retorna una lista de todos los <p> con la clase " class= "intro" "
+*/
+
+var x = document.querySelectorAll("p.intro");
+
+/*
+    Encontrando elementos HTML by HTML Object Collections
+
+    El ejemplo de abajo encuentra el form element con un id="frm1",
+    en el forms collection, y muestra todos los valores del elemento.
+
+*/
+
+function myFunction() {
+    var x = document.forms["frm1"];
+    var text = "";
+    var i;
+    for (i = 0; i < x.length ;i++) {
+      text += x.elements[i].value + "<br>";
+    }
+    document.getElementById("demo").innerHTML = text;
+  }
+
+/*
+    Los siquientes objectos HTML (y colecciones de objetos) son accesibles tmb:
+
+    document.anchors
+    document.body
+    document.documentElement
+    document.embeds
+    document.forms
+    document.head
+    document.images
+    document.links
+    document.scripts
+    document.title
+
+*/
+
+/*
+    En javascript, document.write() puede ser usado para escribir directamente 
+    al htlm output stream.
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+    <script>
+    document.write(Date());
+    </script>
+
+    </body>
+    </html>
+
+    Nunca uses document.write() despues de que el documento se haya cargado,
+    por que esto sobreescribira el documento.
+
+    Cambiado contenido HTML
+
+    La forma mas facil para cambiar el contenido de un elemento en html,
+    es usar la propiedad innerHTML.
+    
+    Para cambiar el contenido de un contenido HTMl usa esta sintaxis:
+*/
+
+    document.getElementById(id).innerHTML = new HTML
+
+/*
+    Este ejemplo cambia el contenido de un elemento p
+
+    <html>
+    <body>
+
+    <p id="p1">Hello World!</p>
+
+    <script>
+    document.getElementById("p1").innerHTML = "New text!";
+    </script>
+
+    </body>
+    </html>
+
+    Ejemplo explicado:
+
+    El html de arriba contiene un elemento con el id de "pi"
+    Usamos el Dom para obtener el elemento con el id="p1"
+    Javascropt cambia el contenido (innerHTML) de este elemento a "New Text"
+
+    Este ejemplo cambia el contenido de un elemento h1
+
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+    <h1 id="id01">Old Heading</h1>
+
+    <script>
+    var element = document.getElementById("id01");
+    element.innerHTML = "New Heading";
+    </script>
+
+    </body>
+    </html>
+
+    El html de arriba contiene un elemnto con id="id01"
+    Usamos el DOM para obtener id="id01"
+    Javascript cambia el contenido (innerHTML) de ese elemento por "New Heading"
+
+*/
+
+/*
+
+    Cambiando el valor de un atributo
+
+    Para cambiar el valor de un atributo utiliza esta sintax:
+
+    document.getElementById(id).attribute = new value
+
+    El ejemplo de abajo cambia el valor del atributo src de un 
+    elemento <img>
+    
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+    <img id="myImage" src="smiley.gif">
+
+    <script>
+    document.getElementById("myImage").src = "landscape.jpg";
+    </script>
+
+    </body>
+    </html>
+
+*/
+
+dia 14
+https://www.w3schools.com/js/js_htmldom_css.asp
 
 
 

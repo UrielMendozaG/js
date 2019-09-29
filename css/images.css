@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+}
+
+.grid {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+
+    justify-items: center;
+    align-items: center;
+
+}
+
+.image {
+    width: 120%;
+    grid-column-start: 2;
+}
+
+.image:hover{
+    width: 125%;
+}
