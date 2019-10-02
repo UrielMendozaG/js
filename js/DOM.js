@@ -474,8 +474,126 @@ function myFunction() {
 
 */
 
-dia 14
-https://www.w3schools.com/js/js_htmldom_css.asp
+/*
 
+Dia 15
 
+    Cambiando estilos HTML
 
+    Para acmbiar estilos de los elementos usa esta sintaxis:
+
+    document.getElementById(id).style.property = new style
+
+    .property significa que tenes acceso a todas las propiedades
+    css.
+
+    document.getElementById("p2").style.color = "blue";
+    document.getElementById("p2").style.fontFamily = "Arial";
+    document.getElementById("p2").style.fontSize = "larger";
+
+*/
+
+/*
+    Usando Eventos 
+
+    HTML DOM permite ejecutar codigo cuando un evento ocurre.
+
+    Eventos son generados en el navegador cuando algo pasa a los elementos HTML.
+
+    - Un elemento ha sido clickeado
+    - La pagina se ha cargado
+    - campos de input han cambiado
+
+    <button type="button" 
+    onclick="document.getElementById('id1').style.color = 'red'">
+    Click Me!</button>
+
+    Este ejemplo cambia el estilo de un texto con id="id1" a color rojo.
+
+*/
+
+/*
+
+    Javascript HTML DOM events
+
+    HTML DOM permite reaccionar a eventos de los elementos HTML.
+
+    Reaccionando a eventos 
+
+    Codigo puede ser ejecutado cuando un evento ocurre, como cuando
+    un usuario clickea un elemento HTML.
+
+    Para ejecutar codigo cuando un usuario clickea en un elemento,
+    añade javascript en un event atribute en html.
+
+    onclick=javascript
+
+    onclick=function();
+
+    Ejemplos de eventos HTML: 
+
+    - Cuando un usuario clickea 
+    - Cuando una pagina web termina de cargar
+    - Cuando una imagen ha sido cargada
+    - Cuando un mouse pasa por encima de un elemento
+    - Cuando un campo input ha sido llenado
+    - Cuando un form HTML ha sido subido
+    - Cuando un usario pulsa una tecla
+
+    Ejemplo de cambiar un h1 cuando un usario pulsa un boton
+
+        <h1 onclick="this.innerHTML = 'Ooops!'">Click on this text!</h1>
+
+        En el ejemplo de arriba le das click y se cambia el texto por 'ooops!'
+
+    En este ejemplo, una funcion es llamada from te event handler
+
+        <h1 onclick="changeText(this)">Click on this text!</h1>
+
+        function changeText(id) {
+        id.innerHTML = "Ooops!";
+        }
+
+    HTML event attributes
+    
+        Para asignar atributos a elementos HTML puedes utilizar atributos de evento.
+
+        <button onclick="displayDate()">Try it</button>
+
+        Este codigo ejecuta una funcion llamada displayDate();
+
+    Asignar eventos usando el HTML DOM
+
+        EL DOM HTML te permite asignar eventos a los elementos HTML usando javascript.
+
+        document.getElementById("myBtn").onclick = displayDate;
+
+        El codigo de arriba es un script que asigna el evento onclick a un elemento
+        con id de "myBtn", cuando le des click al boton la fecha aparecerá.
+    
+    The onload and onunload Events
+
+        The onload and onunload events are triggered cuando un usuario entra
+        o sale de la pagina.
+
+        The onload event puede ser usado para checar el tipo y version del navegador
+        y cargar la version adecuada de la pagina de acuerdo a la version.
+
+        The onload and onunload events pueden ser usado para trabajar con cookies.
+
+    The onchange event es frecuentemente usado en combinacion con validacion
+    para los input fields.
+
+    Abajo hay un ejemplo de como utilizar the onchange event, la funcion upperCase() sera 
+    llamada cuando un usuario cambie el contenido de un input field
+    */
+
+    //  Enter your name: <input type="text" id="fname" onchange="myFunction()">
+
+   function myFunction() {
+        var x = document.getElementById("fname");
+        x.value = x.value.toUpperCase();
+    }
+   
+   
+   //1 de octubre es el dia 16
