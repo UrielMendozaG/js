@@ -17,3 +17,18 @@ else
 }
 
 console.log(calificacion(69));
+
+
+/* 
+
+    else if ejercicio
+
+*/
+
+    var edad = 0;
+
+    if(edad < 18){
+
+    }else if(edad >18){
+        console.log("mayor de 18");
+    }

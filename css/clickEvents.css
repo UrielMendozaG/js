@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    text-align: center;
+}
+
+#elipse {
+    position: absolute;
+    top: 40%;
+    width: 5%;
+}

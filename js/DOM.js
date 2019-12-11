@@ -595,5 +595,37 @@ Dia 15
         x.value = x.value.toUpperCase();
     }
    
+   /*
+        El ejemplo de arriba hace que cuando insertas un texto en el campo input
+        de html, lo convierte a mayusculas, pero eso solo si abandonas el campo.
+   */
+
+    /*
+        The onmouseover and onmouseout Events
+
+        The onmouseover and onmouseout pueden llamar a la funcion cuando el usuario
+        mueve el cursor por encima, o por afuera de un elemento HTML.
+
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)"
+    Mouse Over Me</div>
+
+        Este ejemplo llama a la funcion mOver(this) cuando el mouse esta por encima
+        del elemento y llama a la funcion mOut(this) cuando esta fuera de el.
+
+    */
+
+    /*
+        The onmousedown, onmouseup and onclick Events
+
+            The onmousedown, onmouse up, onclick events son parte todos de los eventos del click
+
+
+
+    */
+
+
+
    
    //1 de octubre es el dia 16
+
+
