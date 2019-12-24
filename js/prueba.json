@@ -1,0 +1,36 @@
+{
+  "datosFiesta": {
+    "partyType": ""
+  },
+  "comidas": {
+    "hamburguesas": {
+      "id":"hamburguesas",
+      "hamburguesa_de_res": { "id": "carne de res", "precio": 100 },
+      "hamburguesa_vegetariana": {
+        "id": "hamburguesas vegetarianas",
+        "precio": 50
+      },
+      "hamburguesa_de_pollo": { "id": "hamburguesas de pollo", "precio": 50 }
+    },
+    "carne_asada": {
+      "id": "carne asada",
+      "arrachera": { "id": "arrachera", "precio": 50 },
+      "peinecillo": { "id": "peinecillo", "precio": 50 },
+      "carnasa": { "id": "carnasa", "precio": 50 }
+    }
+  },
+  "bebidas": {
+    "refresco": { "id": "refresco", "precio": 50 },
+    "cerveza": { "id": "cerveza", "precio": 50 },
+    "vino": { "id": "vino", "precio": 50 }
+  },
+  "botanas": {
+    "churros": { "id": "churros", "precio": 50 },
+    "papas": { "id": "papas", "precio": 50 }
+  },
+  "desechables": {
+    "baratos": { "id": "baratos", "precio": 50 },
+    "caros": { "id": "caros", "precio": 50 }
+  },
+  "__v": 0
+}
