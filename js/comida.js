@@ -83,9 +83,7 @@ boton.addEventListener("click", () => {
   console.log(ingredientePrincipal.precio, bebida.precio,botana.precio,desechables_.precio)
   suma = 0;
   elementos.forEach((item)=>{
-    if("precio" in item){
-      suma += item.precio
-    }
+    console.log(item)
   })
   console.log("precio total", suma)
   console.log(d)
